@@ -510,6 +510,12 @@ impl core::fmt::Display for Frame {
     }
 }
 
+impl std::clone::Clone for Frame {
+    fn clone(&self) -> Self {
+        self.clone()
+    }
+}
+
 impl embedded_hal_0_2::can::Frame for Frame {
     fn new(id: impl Into<embedded_hal_0_2::can::Id>, data: &[u8]) -> Option<Self> {
         let (id, extended) = match id.into() {
